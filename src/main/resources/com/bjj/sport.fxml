@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bjj.controller.SportController"
+            prefWidth="700" prefHeight="500">
+
+    <top>
+        <VBox style="-fx-padding: 15; -fx-background-color: #2196F3;">
+            <Label text="🏅 Gestion des Sports"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane>
+            <!-- Liste des sports -->
+            <VBox spacing="10" style="-fx-padding: 15;">
+                <Label text="Liste des sports" style="-fx-font-weight: bold;"/>
+                <TableView fx:id="tableSports" prefHeight="350">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colNom" text="Nom du sport" prefWidth="200"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Formulaire -->
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <Label text="Ajouter / Modifier" style="-fx-font-weight: bold;"/>
+
+                <VBox spacing="5">
+                    <Label text="Nom du sport :"/>
+                    <TextField fx:id="nomField" promptText="Ex: Brazilian Jiu-Jitsu"/>
+                </VBox>
+
+                <Label fx:id="messageLabel" text=""
+                       style="-fx-font-size: 12px;"/>
+
+                <HBox spacing="10">
+                    <Button text="➕ Ajouter"
+                            onAction="#ajouterSport"
+                            prefWidth="120"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    <Button text="✏️ Modifier"
+                            onAction="#modifierSport"
+                            prefWidth="120"
+                            style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+                    <Button text="🗑️ Supprimer"
+                            onAction="#supprimerSport"
+                            prefWidth="120"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+                </HBox>
+
+                <Button text="🔄 Actualiser"
+                        onAction="#chargerSports"
+                        prefWidth="120"/>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bjj.controller.LoginController"
+            prefWidth="850" prefHeight="520"
+            style="-fx-background-color: #f0f2f5;">
+
+    <!-- Panel gauche bleu -->
+    <left>
+        <VBox alignment="CENTER" spacing="20"
+              style="-fx-background-color: linear-gradient(to bottom, #1e3a5f, #2a5298); -fx-padding: 50 40; -fx-min-width: 380;">
+
+            <Label text="GES"
+                   style="-fx-font-size: 52px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+
+            <Label text="Gestion des"
+                   style="-fx-font-size: 18px; -fx-text-fill: rgba(255,255,255,0.9);"/>
+            <Label text="Evenements Sportifs"
+                   style="-fx-font-size: 18px; -fx-text-fill: rgba(255,255,255,0.9); -fx-font-weight: bold;"/>
+
+            <Separator style="-fx-background-color: rgba(255,255,255,0.3); -fx-padding: 10 0;"/>
+
+            <VBox spacing="15" style="-fx-padding: 10 0;">
+
+                <!-- Badge Admin -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Label text="ADMIN"
+                           style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 4 10; -fx-background-radius: 4; -fx-min-width: 100;"/>
+                    <VBox spacing="2">
+                        <Label text="Administrateur"
+                               style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                        <Label text="Acces complet a l'application"
+                               style="-fx-text-fill: rgba(255,255,255,0.6); -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Badge Organisateur -->
+                <HBox spacing="12" alignment="CENTER_LEFT">
+                    <Label text="ORGANISATEUR"
+                           style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 4 10; -fx-background-radius: 4; -fx-min-width: 100;"/>
+                    <VBox spacing="2">
+                        <Label text="Organisateur"
+                               style="-fx-text-fill: white; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                        <Label text="Gestion des evenements"
+                               style="-fx-text-fill: rgba(255,255,255,0.6); -fx-font-size: 11px;"/>
+                    </VBox>
+                </HBox>
+
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="BTS SIO - Tahiti 2026"
+                   style="-fx-text-fill: rgba(255,255,255,0.4); -fx-font-size: 11px;"/>
+        </VBox>
+    </left>
+
+    <!-- Panel droit formulaire -->
+    <center>
+        <VBox alignment="CENTER" spacing="25"
+              style="-fx-padding: 50 45; -fx-background-color: white;">
+
+            <VBox spacing="6" alignment="CENTER">
+                <Label text="Bienvenue !"
+                       style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1e3a5f;"/>
+                <Label text="Connectez-vous pour acceder a l'application"
+                       style="-fx-font-size: 12px; -fx-text-fill: #95a5a6;"/>
+            </VBox>
+
+            <Separator/>
+
+            <VBox spacing="20" maxWidth="320">
+
+                <VBox spacing="6">
+                    <Label text="Identifiant"
+                           style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <TextField fx:id="loginField" promptText="Entrez votre identifiant"
+                               style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 10 12; -fx-font-size: 13px;"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Mot de passe"
+                           style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+                    <PasswordField fx:id="passwordField" promptText="Entrez votre mot de passe"
+                                   style="-fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-radius: 6; -fx-background-radius: 6; -fx-padding: 10 12; -fx-font-size: 13px;"/>
+                </VBox>
+
+                <Label fx:id="errorLabel" text=""
+                       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+
+                <Button text="Se connecter" onAction="#seConnecter"
+                        maxWidth="Infinity"
+                        style="-fx-background-color: linear-gradient(to right, #1e3a5f, #2a5298); -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 12; -fx-background-radius: 6; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(30,58,95,0.4), 8, 0, 0, 3);"/>
+
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <Label text="GES v1.0 - Gestion des Evenements Sportifs"
+                   style="-fx-text-fill: #bdc3c7; -fx-font-size: 11px;"/>
+        </VBox>
+    </center>
+
+</BorderPane>

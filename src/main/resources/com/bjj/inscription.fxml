@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bjj.controller.InscriptionController"
+            prefWidth="800" prefHeight="550">
+
+    <top>
+        <VBox style="-fx-padding: 15; -fx-background-color: #2196F3;">
+            <Label text="📋 Gestion des Inscriptions"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane>
+            <!-- Liste des inscriptions -->
+            <VBox spacing="10" style="-fx-padding: 15;">
+                <Label text="Liste des inscriptions" style="-fx-font-weight: bold;"/>
+                <TableView fx:id="tableInscriptions" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+                        <TableColumn fx:id="colParticipant" text="Participant" prefWidth="150"/>
+                        <TableColumn fx:id="colEvenement" text="Événement" prefWidth="150"/>
+                        <TableColumn fx:id="colCategorie" text="Catégorie" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Formulaire -->
+            <VBox spacing="12" style="-fx-padding: 15;">
+                <Label text="Inscrire un participant" style="-fx-font-weight: bold;"/>
+
+                <VBox spacing="5">
+                    <Label text="Participant :"/>
+                    <ComboBox fx:id="participantCombo" prefWidth="220"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Événement :"/>
+                    <ComboBox fx:id="evenementCombo" prefWidth="220"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Catégorie :"/>
+                    <TextField fx:id="categorieField" promptText="Ex: -70kg"/>
+                </VBox>
+
+                <Label fx:id="messageLabel" text=""
+                       style="-fx-font-size: 12px;"/>
+
+                <HBox spacing="10">
+                    <Button text="➕ Inscrire"
+                            onAction="#inscrireParticipant"
+                            prefWidth="120"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    <Button text="🗑️ Désinscrire"
+                            onAction="#desinscrireParticipant"
+                            prefWidth="120"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+                </HBox>
+
+                <Button text="🔄 Actualiser"
+                        onAction="#chargerInscriptions"
+                        prefWidth="120"/>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>

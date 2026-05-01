@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.bjj.controller.UtilisateurController"
+            prefWidth="800" prefHeight="550">
+
+    <top>
+        <VBox style="-fx-padding: 15; -fx-background-color: #2196F3;">
+            <Label text="👤 Gestion des Comptes Utilisateurs"
+                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane>
+            <!-- Liste des utilisateurs -->
+            <VBox spacing="10" style="-fx-padding: 15;">
+                <Label text="Liste des utilisateurs" style="-fx-font-weight: bold;"/>
+                <TableView fx:id="tableUtilisateurs" prefHeight="400">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="40"/>
+                        <TableColumn fx:id="colLogin" text="Login" prefWidth="120"/>
+                        <TableColumn fx:id="colNom" text="Nom" prefWidth="100"/>
+                        <TableColumn fx:id="colPrenom" text="Prénom" prefWidth="100"/>
+                        <TableColumn fx:id="colRole" text="Rôle" prefWidth="100"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- Formulaire -->
+            <VBox spacing="12" style="-fx-padding: 15;">
+                <Label text="Ajouter / Modifier" style="-fx-font-weight: bold;"/>
+
+                <VBox spacing="5">
+                    <Label text="Login :"/>
+                    <TextField fx:id="loginField" promptText="Ex: jdupont"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Mot de passe :"/>
+                    <PasswordField fx:id="passwordField" promptText="Mot de passe"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Nom :"/>
+                    <TextField fx:id="nomField" promptText="Ex: Dupont"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Prénom :"/>
+                    <TextField fx:id="prenomField" promptText="Ex: Jean"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="Rôle :"/>
+                    <ComboBox fx:id="roleCombo" prefWidth="200"/>
+                </VBox>
+
+                <Label fx:id="messageLabel" text=""
+                       style="-fx-font-size: 12px;"/>
+
+                <HBox spacing="10">
+                    <Button text="➕ Ajouter"
+                            onAction="#ajouterUtilisateur"
+                            prefWidth="110"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    <Button text="✏️ Modifier"
+                            onAction="#modifierUtilisateur"
+                            prefWidth="110"
+                            style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+                    <Button text="🗑️ Supprimer"
+                            onAction="#supprimerUtilisateur"
+                            prefWidth="110"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+                </HBox>
+
+                <Button text="🔄 Actualiser"
+                        onAction="#chargerUtilisateurs"
+                        prefWidth="110"/>
+            </VBox>
+        </SplitPane>
+    </center>
+
+</BorderPane>
